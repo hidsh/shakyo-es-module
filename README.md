@@ -14,20 +14,37 @@ $ python -m http.server 8080
 ![ss](./doc-image/ss1.png)
 
 # メモ
+
+## ファイルの関連
 ```
 index.html
-    <script type="module" src="src/main.js"></script>
+    <head>
+      <script type="module" src="src/main.js"></script>
       ↓
 src/main.js
-    component() {
-    element.innerHTML = [
-        'Hello ES module! script type="module"',
-        `5 cubed is equal to ${cube(5)}`
+    import {square, cube} from './math-module.js';
       ↓
 src/math-module.js
-    export function cube(x) {
-        return x * x * x;
-    }
+    export function cube(x) { ... }
+```
+
+## 処理の流れ
+```
+index.html
+    <script src="...">で src/main.js を取得
+      ↓
+src/main.js
+   import {square, cube} from '...' で src/math-module.js 内の関数をインポート
+   component()関数を定義
+   component()関数を実行
+    フォーマット文字列の ${cube(5)} で src/math-module.js 内の cube() 関数をコール
+src/math-module.js
+    cube()を実行
+      ↓
+src/main.js
+    cube()の戻り値をフォーマット文字列に埋め込む
+    <pre>タグを定義して、その innerHTMLにフォーマット文字列を入れる
+    その<pre>タグを appendChild()でDOMに追加
 ```
 
 
