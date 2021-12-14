@@ -1,12 +1,12 @@
 # use-global-instead
 
-`import` が使えるのは、jsファイルを `<script type="module" src="...">` で読み込んだときだけなので、HTMLに直接書いたJavascriptから外部jsファイル内の関数をコールすることはできない。
-なので、HTMLに直接書いたJavascriptから外部jsファイル内の関数をコールするときは、結局グローバル変数に出してそれを関数コールするしかなさそう。
+`import` が使えるのは外部の jsファイルを `<script type="module" src="...">` で読み込んだときだけなので、HTMLに直接書いたJavascriptから外部jsファイル内の関数をコールすることはできない。
+
+なので、HTMLに直接書いたJavascriptから外部jsファイル内の関数をコールするときは結局、グローバル変数に出してそれを関数コールするしかなさそう。
 
 以下は ES module を使わずに、グローバル変数を使うテスト。
 
-
-[Javascript の Module 関数を htmlレベルから使いたい](https://teratail.com/questions/261118) を参考。
+参考: [Javascript の Module 関数を htmlレベルから使いたい](https://teratail.com/questions/261118)
 
 # 確認
 
