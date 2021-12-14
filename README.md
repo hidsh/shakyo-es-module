@@ -1,4 +1,4 @@
-# use-global-instead
+# use-global-instead ブランチ
 
 `import` が使えるのは外部の jsファイルを `<script type="module" src="...">` で読み込んだときだけなので、HTMLに直接書いたJavascriptから外部jsファイル内の関数をコールすることはできない。
 
