@@ -1,13 +1,7 @@
-import {square, cube} from './math-module.js';
+// import {square, cube} from './math-module.js';
 
-function component() {
-  const element = document.createElement('pre');
-  element.innerHTML = [
-    'Hello ES module! script type="module"',
-    `5 cubed is equal to ${cube(5)}`
-  ].join('\n\n');
+const click_handler = function() {
+    alert('Click !');
+};
 
-  return element;
-}
-
-document.body.appendChild(component());
+window.click_handler = click_handler;
